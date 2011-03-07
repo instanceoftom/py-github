@@ -137,7 +137,10 @@ class User(BaseResponse):
     parses = 'user'
 
     def __repr__(self):
-        return "<<User %s>>" % self.name
+        try:
+            return "<<User %s>>" % self.name
+        except AttributeError:
+            return "<<User %s>>" % self.login
 
 class Plan(BaseResponse):
     """A github plan."""
